@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -13,7 +14,7 @@ namespace DogBreeders.Models {
       /// <summary>
       /// name of file that has the photo of dog 
       /// </summary>
-      public string  NameOfPhoto { get; set; }
+      public string NameOfPhoto { get; set; }
 
       /// <summary>
       /// date of photo
@@ -25,6 +26,19 @@ namespace DogBreeders.Models {
       /// </summary>
       public string Local { get; set; }
 
+      //*********************************************************
+      // making the FK from the Photo to the Dog
+      //*********************************************************
+      [ForeignKey("Dog")] // with this annotation we are connecting
+                          // attribute 'DogFK' with attribute 'Dog'
+      public int DogFK { get; set; } // mark 'Dog' as FK in DB
+
+      public Dogs Dog { get; set; } // Photo has only one Dog
+                                    // mark 'Dog' as FK in C#
+                                    // This is the only attribute that we realy nead
+                                    // the other attributs are for programmers confort
+
+      //*********************************************************
 
 
 
