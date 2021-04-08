@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -41,6 +42,19 @@ namespace DogBreeders.Models {
       /// </summary>
       public ICollection<Photos> Photos { get; set; }
       //******************************************************************
+
+
+      //******************************************************************
+      // FK from Dog to Breed
+      //******************************************************************
+      [ForeignKey("Breed")]
+      public int BreedFK { get; set; }  // FK to Breed, in DB
+      public Breeds Breed { get; set; } // FK to Breed, in C#
+
+      //******************************************************************
+
+
+
 
    }
 }
