@@ -10,6 +10,11 @@ namespace DogBreeders.Models {
    /// </summary>
    public class DogBreeder {
 
+      public DogBreeder() {
+         Dogs = new HashSet<DogBreederDogs>();
+      }
+
+
       /// <summary>
       /// name of dog breeder
       /// </summary>
@@ -34,6 +39,17 @@ namespace DogBreeders.Models {
       /// cell phone
       /// </summary>
       public string CellPhone { get; set; }
+
+
+      //**********************************************************
+      // List of DogBreedersDogs
+      //**********************************************************
+      /// <summary>
+      /// represents the list of Dogs that the dog breeder has
+      /// </summary>
+      public ICollection<DogBreederDogs> Dogs { get; set; }
+      //**********************************************************
+
 
    }
 }
