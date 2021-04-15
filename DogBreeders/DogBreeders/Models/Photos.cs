@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,6 +11,14 @@ namespace DogBreeders.Models {
    /// Photos of the dogs
    /// </summary>
    public class Photos {
+
+
+      /// <summary>
+      /// Primary Key (PK) of table Photos
+      /// </summary>
+      [Key]
+      public int Id { get; set; }
+
 
       /// <summary>
       /// name of file that has the photo of dog 

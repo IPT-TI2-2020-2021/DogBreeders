@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -15,6 +16,11 @@ namespace DogBreeders.Models {
          Dogs = new HashSet<Dogs>();
       }
 
+      /// <summary>
+      /// Primary Key (PK) of table Breeds
+      /// </summary>
+      [Key]
+      public int Id { get; set; }
 
       /// <summary>
       /// name of the breed

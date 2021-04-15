@@ -1,6 +1,9 @@
+using DogBreeders.Data;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -11,6 +14,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace DogBreeders {
+
    public class Startup {
       public Startup(IConfiguration configuration) {
          Configuration = configuration;
@@ -20,7 +24,15 @@ namespace DogBreeders {
 
       // This method gets called by the runtime. Use this method to add services to the container.
       public void ConfigureServices(IServiceCollection services) {
+
          services.AddControllersWithViews();
+
+         // define the engine of DataBase that we are going to use
+         // we must install the using 'Microsoft.EntityFrameworkCore.SqlServer' package to use it
+         services.AddDbContext<DogBreedersDB>(
+            options => options.UseSqlServer(Configuration.GetConnectionString("DogBreedersDBConnection"))
+            );
+
       }
 
       // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
