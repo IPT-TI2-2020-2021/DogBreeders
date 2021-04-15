@@ -24,6 +24,7 @@ namespace DogBreeders.Models {
       /// <summary>
       /// name of dog breeder
       /// </summary>
+      [Required]
       public string Name { get; set; }
 
       /// <summary>
@@ -39,12 +40,23 @@ namespace DogBreeders.Models {
       /// <summary>
       /// Email
       /// </summary>
+      [Required]
+      [EmailAddress]
+      [RegularExpression("aluno[0-9]{5}@ipt.pt")]
       public string Email { get; set; }
 
       /// <summary>
       /// cell phone
       /// </summary>
+      [Required]
+      [RegularExpression("[1-9][0-9]{5,8}",ErrorMessage ="you must use only from 6 to 9 numbers")]
       public string CellPhone { get; set; }
+      // Regular expressions
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
+      // https://regexr.com/
+      // https://www.regular-expressions.info/
+
+
 
 
       //**********************************************************
