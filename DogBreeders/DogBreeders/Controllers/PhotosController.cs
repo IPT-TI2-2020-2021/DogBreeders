@@ -20,6 +20,10 @@ namespace DogBreeders.Controllers {
 
 
       // GET: Photos
+      /// <summary>
+      /// Method to process the Index requests
+      /// </summary>
+      /// <returns></returns>
       public async Task<IActionResult> Index() {
 
          /* 
@@ -55,11 +59,23 @@ namespace DogBreeders.Controllers {
          return View(photos);
       }
 
+
+
+
       // GET: Photos/Create
+      /// <summary>
+      /// This method shows to users the form to add a new photo, 
+      /// at the first time that a user wants to add a photo
+      /// </summary>
+      /// <returns></returns>
       public IActionResult Create() {
-         ViewData["DogFK"] = new SelectList(_db.Dogs, "Id", "Id");
+
+         ViewData["Dogs"] = new SelectList(_db.Dogs.OrderBy(d=>d.Name), "Id", "Name");
+
          return View();
       }
+
+
 
       // POST: Photos/Create
       // To protect from overposting attacks, enable the specific properties you want to bind to.
