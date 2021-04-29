@@ -33,6 +33,7 @@ namespace DogBreeders.Models {
       /// <summary>
       /// place where the photo was taken
       /// </summary>
+      [Display(Name ="Local where the Photo was taken")]
       public string Local { get; set; }
 
       //*********************************************************

@@ -23,7 +23,7 @@
             @Html.DisplayNameFor(model => model.Date)
          </th>
          <th>
-            @Html.DisplayNameFor(model => model.Dog)
+           Dogs' Breed
          </th>
          <th></th>
       </tr>
@@ -37,10 +37,12 @@
          <img src="~/fotos/@Html.DisplayFor(modelItem => item.NameOfPhoto)" />
          <img src="~/fotos/@item.NameOfPhoto" />
             *@
-            <img src="~/fotos/@item.NameOfPhoto"
-                 alt="photo of @item.Dog.Name"
-                 title="@item.Dog.Name"
-                 height="50" />
+            <a href="~/fotos/@item.NameOfPhoto" target="_blank">
+               <img src="~/fotos/@item.NameOfPhoto"
+                    alt="photo of @item.Dog.Name"
+                    title="@item.Dog.Name"
+                    height="50" />
+            </a>
          </td>
          <td>
             @Html.DisplayFor(model => item.Dog.Name)
@@ -49,7 +51,7 @@
             @Html.DisplayFor(modelItem => item.Date)
          </td>
          <td>
-            @Html.DisplayFor(modelItem => item.Dog.Id)
+            @Html.DisplayFor(modelItem => item.Dog.Breed.Name)
          </td>
          <td>
             <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
