@@ -25,6 +25,15 @@ namespace DogBreeders {
       // This method gets called by the runtime. Use this method to add services to the container.
       public void ConfigureServices(IServiceCollection services) {
 
+         // enablig the use of session variables
+         services.AddDistributedMemoryCache();
+         services.AddSession(options => {
+            options.IdleTimeout = TimeSpan.FromSeconds(120);
+            options.Cookie.HttpOnly = true;
+            options.Cookie.IsEssential = true;
+         });
+
+
          services.AddControllersWithViews();
 
          // define the engine of DataBase that we are going to use
@@ -49,6 +58,11 @@ namespace DogBreeders {
          app.UseStaticFiles();
 
          app.UseRouting();
+
+         // starting the use of session variables
+         // this instruction must be write after 'app.UseRouting()' 
+         // and before 'app.UseEndPoints()'
+         app.UseSession();
 
          app.UseAuthorization();
 
