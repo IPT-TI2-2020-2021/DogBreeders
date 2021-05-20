@@ -20,6 +20,9 @@ namespace DogBreeders.Models {
          Photos = new HashSet<Photos>();
          // access to DB, and read all Dog Breeders that are connected with the dog
          DogBreeders = new HashSet<DogBreederDogs>();
+         
+         // List of Vets that treated the dog
+         Vets = new HashSet<Veterinary>();
       }
 
       /// <summary>
@@ -69,6 +72,13 @@ namespace DogBreeders.Models {
       public ICollection<DogBreederDogs> DogBreeders { get; set; }
       //**********************************************************
 
+
+      //*******************************************************
+      /// <summary>
+      /// List of Vets that treated the dog
+      /// M-N relationship
+      /// </summary>
+      public ICollection<Veterinary> Vets { get; set; }
 
 
    }

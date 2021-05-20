@@ -112,5 +112,7 @@ namespace DogBreeders.Data {
       public DbSet<Photos> Photos { get; set; }
       public DbSet<Breeds> Breeds { get; set; }
 
+      public DbSet<Veterinary> Vets { get; set; }
+
    }
 }
